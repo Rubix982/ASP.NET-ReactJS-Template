@@ -1,0 +1,93 @@
+{
+  "name": "himalay-frontend",
+  "version": "1.0.0",
+  "description": "Just another ReactJS <3 ASP.NET project",
+  "main": "src/index.tsx",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "webpack:server": "webpack-dev-server",
+    "webpack:build": "tsc && webpack --progress --config webpack.config.js"
+  },
+  "author": "Saif Ul Islam",
+  "license": "MIT",
+  "dependencies": {
+    "antd": "^4.11.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/enzyme": "^3.10.8",
+    "@types/hoist-non-react-statics": "^3.3.1",
+    "@types/jest": "^26.0.15",
+    "@types/lodash": "^4.14.168",
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.53",
+    "@types/react-dom": "^16.9.8",
+    "@types/react-redux": "^7.1.16",
+    "@types/react-router": "^5.1.11",
+    "@types/react-router-config": "^5.0.2",
+    "@types/react-router-dom": "^5.1.7",
+    "@types/webpack-env": "^1.16.0",
+    "ajv": "^7.0.3",
+    "css-loader": "^5.0.1",
+    "enzyme": "^3.11.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^4.5.1",
+    "install-peerdeps": "^3.0.0",
+    "loader-utils": "^2.0.0",
+    "lodash": "^4.17.20",
+    "merge": "^2.1.0",
+    "mini-css-extract-plugin": "^1.3.4",
+    "nan": "^2.14.2",
+    "node-sass": "4.14.1",
+    "oidc-client": "^1.10.1",
+    "react-test-renderer": "^17.0.1",
+    "redux-devtools-extension": "^2.13.8",
+    "sass-loader": "^10.1.1",
+    "source-map-loader": "^2.0.0",
+    "style-loader": "^2.0.0",
+    "ts-import-plugin": "^1.6.7",
+    "ts-jest": "^26.4.4",
+    "ts-loader": "^8.0.14",
+    "typescript": "^4.0.3",
+    "web-vitals": "^0.2.4",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^3.3.8",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "transform": {
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    }
+  }
+}

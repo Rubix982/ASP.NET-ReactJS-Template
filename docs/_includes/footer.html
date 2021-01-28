@@ -1,0 +1,13 @@
+<footer id="colophon" class="site-footer">
+  <p class="site-info">
+    {{ site.footer.content }}
+    &nbsp;
+    {% for link in site.footer.links %}
+    <a href="{{ link.url }}" {% assign new_window_is_not_empty = link.new_window | is_not_empty %}
+      {% if new_window_is_not_empty %}target="_blank" rel="noopener"
+      {% endif %}>{{ link.text }}</a>.
+    {% endfor %}
+  </p><!-- .site-info -->
+  <a id="to-top" class="to-top" href="#page"><span class="icon-arrow-up" aria-hidden="true"></span><span
+      class="screen-reader-text">Back to top</span></a>
+</footer><!-- .site-footer -->

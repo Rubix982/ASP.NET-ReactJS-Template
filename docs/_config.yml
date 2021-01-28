@@ -1,0 +1,41 @@
+title: Stackbit Fresh Theme
+baseurl: /
+permalink: '/:title/'
+collections:
+  posts:
+    permalink: '/posts/:title/'
+layout_style: overflow
+palette: blue
+header:
+  title: Stackbit Fresh
+  tagline: Header Tagline
+  profile_img: images/avatar.png
+  bg: dark
+  has_nav: true
+  has_social: true
+footer:
+  content: '&copy; Stackbit-Fresh. All rights reserved.'
+  links:
+    - text: Made with Stackbit
+      url: 'https://www.stackbit.com'
+      new_window: true
+sass:
+  indentWidth: 4
+  style: nested
+  precision: 10
+plugins:
+  - jekyll-menus
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - ssg-build.sh
+  - LICENSE.md
+  - README.md
+  - netlify.toml
+  - stackbit-build.sh
+  - stackbit-pull.js

@@ -1,0 +1,24 @@
+---
+layout: body
+---
+
+  <article class="post page post-full">
+    <header class="post-header">
+      <h1 class="post-title underline">{{ page.title }}</h1>
+    </header><!-- .post-header -->
+    {% assign subtitle_is_not_empty = page.subtitle | is_not_empty %}
+    {% if subtitle_is_not_empty %}
+    <div class="post-subtitle">
+      {{ page.subtitle }}
+    </div><!-- .post-subtitle -->
+    {% endif %}
+    {% assign img_path_is_not_empty = page.img_path | is_not_empty %}
+    {% if img_path_is_not_empty %}
+    <div class="post-thumbnail">
+      <img src="{{ page.img_path | relative_url }}" alt="{{ page.title }}" />
+    </div><!-- .post-thumbnail -->
+    {% endif %}
+    <div class="post-content">
+      {{ content }}
+    </div><!-- .post-content -->
+  </article><!-- .post -->

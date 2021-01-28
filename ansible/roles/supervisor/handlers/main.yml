@@ -1,0 +1,8 @@
+---
+- name: Reload supervisor
+  become: true
+  service: name=supervisor state=reloaded enabled=true
+
+- name: Reload supervisor app config
+  become: true
+  command: supervisorctl restart {{ app_name }}

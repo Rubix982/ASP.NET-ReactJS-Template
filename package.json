@@ -1,0 +1,58 @@
+{
+  "name": "himalay",
+  "version": "1.0.0",
+  "description": "A very boring thing. Probably not worth your time.",
+  "main": "index.js",
+  "scripts": {
+    "dotnet:prerelease": "cross-env ASPNETCORE_ENVIRONMENT=Production && cd client && ./node_modules/.bin/webpack --config ./webpack.config.js && cd ../server/ && dotnet publish --configuration Release",
+    "dotnet:build": "dotnet build ./server/",
+    "dotnet:postinstall": "dotnet restore ./server/",
+    "dotnet:start": "concurrently \"cross-env NODE_PATH=../node_modules/ ASPNETCORE_ENVIRONMENT=Development && cd server && dotnet watch run\" \"cd ./client && yarn webpack:server\"",
+    "dotnet:migrate": "cd ./server/ && node ./Scripts/create-migration.js && dotnet ef database update",
+    "ansible:provision:prod": "ansible-playbook -l production -i ./ansible/config.yml ./ansible/provision.yml",
+    "ansible:deploy:prod": "npm run prerelease && ansible-playbook -l production -i ./ansible/config.yml ./ansible/deploy.yml",
+    "ssh:prod": "ssh `grep 'deploy_user=' ./ansible/hosts | tail -n1 | awk -F'=' '{ print $2}'`@`awk 'f{print;f=0} /[production]/{f=1}' ./ansible/hosts | head -n 1`",
+    "lint": "eslint ./client/",
+    "lint-fix": "prettier --write ./client/src/**/*.ts{,x} && eslint ./client/ --fix",
+    "test": "npm run test:server && npm run test:client",
+    "test:server": "cd ./server/Tests && dotnet test",
+    "test:client": "cd ./client/ && ./node_modules/.bin/jest ./client/src/tests/About.test.tsx"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rubix982/Social-Media-Project.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rubix982/Social-Media-Project/issues"
+  },
+  "homepage": "https://github.com/Rubix982/Social-Media-Project#readme",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "@typescript-eslint/parser": "^4.14.0",
+    "airbnb": "^0.0.2",
+    "concurrently": "^5.3.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.14.0",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.0",
+    "webpack-cli": "^4.4.0"
+  },
+  "dependencies": {
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "prettier": "^2.2.1",
+    "yarn": "^1.22.10"
+  }
+}

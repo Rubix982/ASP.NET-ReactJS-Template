@@ -1,0 +1,15 @@
+---
+- name: Download product repository file
+  get_url:
+    url: "https://packages.microsoft.com/config/ubuntu/{{ansible_distribution_major_version}}.04/packages-microsoft-prod.deb"
+    dest: "/tmp/packages-microsoft-prod.deb"
+  when: ansible_distribution == "Ubuntu" and ansible_distribution_major_version == "18"
+
+- name: Execute dehydrated shell script
+  shell: "dpkg -i /tmp/packages-microsoft-prod.deb"
+
+- name: Install transport-https
+  apt: pkg=apt-transport-https state=present update_cache=yes
+
+- name: Install dotnet core SDK
+  apt: name={{ dotnetcore_package_name }} state=present

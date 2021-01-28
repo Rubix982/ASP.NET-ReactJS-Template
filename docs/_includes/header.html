@@ -1,0 +1,49 @@
+<header id="masthead" class="site-header {{ site.header.bg }}">
+  <div class="site-header-wrap">
+    <div class="site-header-inside">
+      <div class="site-branding">
+        {% assign profile_img_is_not_empty = site.header.profile_img | is_not_empty %}
+        {% if profile_img_is_not_empty %}
+        <p class="profile">
+          <a href='{{ '/' | relative_url }}'><img src="{{ site.header.profile_img | relative_url }}"
+              class="avatar" alt="Author Avatar" /></a>
+        </p><!-- .profile -->
+        {% endif %}
+        <div class="site-identity">
+          {% if page.layout == 'home' or page.layout == 'blog' %}
+          <h1 class="site-title"><a href='{{ '/' | relative_url }}'>{{ site.header.title }}</a></h1>
+          {% else %}
+          <p class="site-title"><a href='{{ '/' | relative_url }}'>{{ site.header.title }}</a></p>
+          {% endif %}
+          {% assign tagline_is_not_empty = site.header.tagline | is_not_empty %}
+          {% if tagline_is_not_empty %}
+          <p class="site-description">{{ site.header.tagline }}</p>
+          {% endif %}
+        </div><!-- .site-identity -->
+        {% if site.menus.main and site.header.has_nav %}
+        <button id="menu-toggle" class="menu-toggle"><span class="screen-reader-text">Menu</span><span class="icon-menu"
+            aria-hidden="true"></span></button>
+        {% endif %}
+      </div><!-- .site-branding -->
+      {% if site.menus.main and site.header.has_nav %}
+      <nav id="main-navigation" class="site-navigation" aria-label="Main Navigation">
+        <div class="site-nav-wrap">
+          <div class="site-nav-inside">
+            <ul class="menu">
+              {% for item in site.menus.main %}
+              <li class="menu-item {% if page.url == item.url %} current-menu-item{% endif %}">
+                <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+              </li>
+              {% endfor %}
+            </ul><!-- .menu -->
+            {% assign has_social_is_not_empty = site.header.has_social | is_not_empty %}
+            {% if has_social_is_not_empty %}
+            {% include social.html %}
+            {% endif %}
+          </div><!-- .site-nav-inside -->
+        </div><!-- .site-nav-wrap -->
+      </nav><!-- .site-navigation -->
+      {% endif %}
+    </div><!-- .site-header-inside -->
+  </div><!-- .site-header-wrap -->
+</header><!-- .site-header -->
