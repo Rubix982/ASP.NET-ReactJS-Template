@@ -1,14 +1,18 @@
-title: Stackbit Fresh Theme
+remote_theme: stackbithq/stackbit-theme-fresh
+title: ASP.NET <3 ReactJS
 baseurl: /
+url: https://github.com/Rubix982/ASP.NET-Core-5.0-Backend-ReactJS-Typescript-Frontend-Template
+favicon: 'favicon.ico'
 permalink: '/:title/'
 collections:
   posts:
     permalink: '/posts/:title/'
+description: Just a sample template to quickly power charge a project.
 layout_style: overflow
 palette: blue
 header:
-  title: Stackbit Fresh
-  tagline: Header Tagline
+  title: ASP.NET <3 ReactJS
+  tagline: Just a sample template to quickly power charge a project.
   profile_img: images/avatar.png
   bg: dark
   has_nav: true
@@ -25,6 +29,8 @@ sass:
   precision: 10
 plugins:
   - jekyll-menus
+  - jekyll-feed
+  - jekyll-sitemap
 exclude:
   - Gemfile
   - Gemfile.lock

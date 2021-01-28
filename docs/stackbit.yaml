@@ -1,18 +1,20 @@
 stackbitVersion: ~0.2.0
 ssgName: jekyll
 ssgVersion: 0.1.12
-buildCommand: ./ssg-build.sh
+buildCommand: jerkyll build
 publishDir: _site
 staticDir: ''
 uploadDir: images
 dataDir: _data
 pagesDir: ''
 pageLayoutKey: layout
+pageData:
+  pagePath: /
 metadata:
-  title: Fresh
-  description: A personal theme with a blog
-  author: Stackbit
-  authorURL: 'https://www.stackbit.com'
+  title: ASP.NET <3 ReactJs
+  description: Just a quick power template
+  author: Rubix982
+  authorURL: 'https://github.com/Rubix982'
   images:
     small: images/demo-256x192.png
     large: images/demo-1024x768.png
@@ -267,6 +269,37 @@ models:
         name: menus
         label: Home Menus
         description: Which menus should this page show up in
+  advanced:
+    type: page
+    label: Advanced Page
+    layout: advanced
+    hideContent: true
+    fields:
+      - type: string
+        name: title
+        label: Title
+        description: The title of the page.
+        required: true
+      - type: boolean
+        name: hide_title
+        label: Hide page title
+        default: true
+      - type: string
+        name: excerpt
+        label: Excerpt
+        description: The excerpt of the page displayed in meta data.
+      - type: list
+        name: sections
+        label: Sections
+        description: Page sections
+        items:
+          type: model
+          labelField: title
+          models:
+            - section_content
+            - section_form
+            - section_hero
+            - section_posts        
   blog:
     type: page
     label: Blog
