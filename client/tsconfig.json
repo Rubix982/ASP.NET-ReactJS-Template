@@ -20,7 +20,7 @@
     "module": "esnext",
     "target": "es5",
     "jsx": "react-jsx",
-    "allowJs": true
+    "allowJs": true,
   },
   "include": [
     "./src/**/*"
