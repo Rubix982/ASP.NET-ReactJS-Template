@@ -4,19 +4,17 @@
   "description": "A very boring thing. Probably not worth your time.",
   "main": "index.js",
   "scripts": {
-    "dotnet:prerelease": "cross-env ASPNETCORE_ENVIRONMENT=Production && cd client && ./node_modules/.bin/webpack --config ./webpack.config.js && cd ../server/ && dotnet publish --configuration Release",
-    "dotnet:build": "dotnet build ./server/",
-    "dotnet:postinstall": "dotnet restore ./server/",
-    "dotnet:start": "concurrently \"cross-env NODE_PATH=../node_modules/ ASPNETCORE_ENVIRONMENT=Development && cd server && dotnet watch run\" \"cd ./client && yarn webpack:server\"",
-    "dotnet:migrate": "cd ./server/ && node ./Scripts/create-migration.js && dotnet ef database update",
-    "ansible:provision:prod": "ansible-playbook -l production -i ./ansible/config.yml ./ansible/provision.yml",
-    "ansible:deploy:prod": "npm run prerelease && ansible-playbook -l production -i ./ansible/config.yml ./ansible/deploy.yml",
-    "ssh:prod": "ssh `grep 'deploy_user=' ./ansible/hosts | tail -n1 | awk -F'=' '{ print $2}'`@`awk 'f{print;f=0} /[production]/{f=1}' ./ansible/hosts | head -n 1`",
+    "start": "cross-env ASPNETCORE_ENVIRONMENT=Development && cd server && dotnet watch run",
+    "test": "cd ./Tests/server/ && dotnet test && cd ../../ && cd ./client/ && ./node_modules/.bin/jest ./client/src/tests/About.test.tsx",
     "lint": "eslint ./client/",
     "lint-fix": "prettier --write ./client/src/**/*.ts{,x} && eslint ./client/ --fix",
-    "test": "npm run test:server && npm run test:client",
-    "test:server": "cd ./server/Tests && dotnet test",
-    "test:client": "cd ./client/ && ./node_modules/.bin/jest ./client/src/tests/About.test.tsx"
+    "prerelease": "cross-env ASPNETCORE_ENVIRONMENT=Production && cd client && ./node_modules/.bin/webpack --config ./webpack.config.js && cd ../server/ && dotnet publish --configuration Release",
+    "build": "dotnet build ./server/ && cd ./client/ && yarn build",
+    "postinstall": "dotnet restore ./server/",
+    "migrate": "cd ./server/ && node ./Scripts/create-migration.js && dotnet ef database update",
+    "provision": "ansible-playbook -l production -i ./ansible/config.yml ./ansible/provision.yml",
+    "deploy": "npm run prerelease && ansible-playbook -l production -i ./ansible/config.yml ./ansible/deploy.yml",
+    "ssh": "ssh `grep 'deploy_user=' ./ansible/hosts | tail -n1 | awk -F'=' '{ print $2}'`@`awk 'f{print;f=0} /[production]/{f=1}' ./ansible/hosts | head -n 1`"
   },
   "husky": {
     "hooks": {
