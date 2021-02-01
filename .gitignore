@@ -37,6 +37,7 @@ data/
 node_modules/
 MISC.txt
 docker-compose.temp.yaml
+client/yarn.lock
 
 # eslint
 client/.eslintcache
