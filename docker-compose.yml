@@ -45,11 +45,11 @@ services:
       - SMTP_PORT=${SMTP_PORT}
       - HTTP_PORT=${HTTP_PORT}
     expose:
-      - "1025:1025"
-      - "1080:1080"
+      - "1025"
+      - "1080"
 
   postgres:
-    name: primary
+    container_name: primary
     image: postgres:latest
     environment:
       - POSTGRES_USER={POSTGRES_USER}

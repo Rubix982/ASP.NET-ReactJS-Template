@@ -2,12 +2,10 @@ FROM node
 
 WORKDIR /App
 
-COPY ./package.json /App/
+COPY ./package.json ./yarn.lock /App/
 
-COPY ./yarn-lock.json /App/
-
-RUN npm install
+RUN yarn
 
 COPY ./ /App/
 
-CMD ["npm","start"]
+CMD ["yarn","start"]

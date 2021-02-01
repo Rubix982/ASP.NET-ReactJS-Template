@@ -8,10 +8,11 @@ remove:
 	sudo docker-compose down --remove-orphans
 
 build:
-	sudo docker-compose -f docker-compose.dev.yaml up --build
+	cd server && dotnet publish -c Release && cd ..
+	sudo docker-compose -f docker-compose.dev.yml up --build
 
 up:
-	sudo docker-compose -f docker-compose.dev.yaml up
+	sudo docker-compose -f docker-compose.dev.yml up
 
 ps:
 	sudo docker-compose ps -a

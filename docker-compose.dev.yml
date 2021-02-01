@@ -11,23 +11,23 @@ services:
       - ./web-server/nginx.conf:/etc/nginx/nginx.conf
     ports:
       - "8080:8080"
-    depends_on:
-      - client
-      - server
-      - smtp
-      - postgres
-      - mongo
-      - cache  
+    # depends_on:
+    #   - client
+    #   - server
+    #   - smtp
+    #   - postgres
+    #   - mongo
+    #   - cache  
 
-  client:
-    container_name: client
-    build: ./client
-    stdin_open: true
-    restart: always
-    volumes:
-      - "./client:/App"
-    ports:
-      - "3000:3000"
+  # client:
+  #   container_name: client
+  #   build: ./client
+  #   stdin_open: true
+  #   restart: always
+  #   volumes:
+  #     - "./client:/App"
+  #   ports:
+  #     - "3000:3000"
 
   server:
     container_name: backend
@@ -36,7 +36,8 @@ services:
     volumes:
       - "./server:/Backend"      
     ports:
-      - "5000:5000"
+      - "5000:5000" # For HTTP
+      - "5001:5001" # For HTTPS
 
   smtp:
     container_name: smtp
@@ -49,7 +50,7 @@ services:
       - "1080:1080"
 
   postgres:
-    name: primary
+    container_name: primary
     image: postgres:latest
     environment:
       - POSTGRES_USER={POSTGRES_USER}
