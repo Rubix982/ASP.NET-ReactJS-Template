@@ -12,3 +12,4 @@
 ## References
 
 - [Create-React-App with TypeScript, ESLint, Prettier, and Github Actions](https://medium.com/@brygrill/create-react-app-with-typescript-eslint-prettier-and-github-actions-f3ce6a571c97)
+- [Dotnet Docker - Github Repository](https://github.com/dotnet/dotnet-docker)
