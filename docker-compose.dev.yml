@@ -36,8 +36,8 @@ services:
     volumes:
       - "./server:/backend"      
     ports:
-      - "5000:5000" # For HTTP
-      - "5001:5001" # For HTTPS
+      - "80:80"
+      - "443:443"
 
   smtp:
     container_name: smtp
