@@ -11,9 +11,6 @@
 #
 name: "CodeQL"
 
-paths-ignore:
-  - './docs/**/**'
-
 on:
   push:
     branches: [ main ]
