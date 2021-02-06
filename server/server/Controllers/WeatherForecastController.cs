@@ -27,6 +27,7 @@ namespace server.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
             var rng = new Random();
+            // Response.Headers.Add("Access-Control-Allow-Origin", "http://localhost:3000");
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateTime.Now.AddDays(index),

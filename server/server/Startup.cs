@@ -11,7 +11,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using Microsoft.AspNetCore.Http;
 
 namespace server
 {
@@ -33,11 +32,6 @@ namespace server
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "server", Version = "v1" });
             });
-
-            services.AddHttpsRedirection(options => {
-                options.RedirectStatusCode = StatusCodes.Status307TemporaryRedirect;
-                options.HttpsPort = 8001;
-            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,11 +44,19 @@ namespace server
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "server v1"));
             }
 
+            app.Use(async (context, nextMiddleware) => {
+                context.Response.OnStarting(() => {
+                    context.Response.Headers.Add("Access-Control-Allow-Origin", "http://localhost:3000");
+                    context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
+                    context.Response.StatusCode = 200;
+                    return Task.FromResult(0);
+                });
+                await nextMiddleware();
+            });
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
-
-            app.UseCookiePolicy();
 
             app.UseAuthorization();
 
