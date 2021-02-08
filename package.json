@@ -1,36 +1,23 @@
 {
-  "name": "himalay",
+  "name": "aspnet-and-reactjs-template",
   "version": "1.0.0",
   "description": "A very boring thing. Probably not worth your time.",
   "main": "index.js",
-  "scripts": {
-    "start": "cross-env ASPNETCORE_ENVIRONMENT=Development && cd server && dotnet watch run",
-    "test": "cd ./Tests/server/ && dotnet test && cd ../../ && cd ./client/ && ./node_modules/.bin/jest ./client/src/tests/About.test.tsx",
-    "lint": "eslint ./client/",
-    "lint-fix": "prettier --write ./client/src/**/*.ts{,x} && eslint ./client/ --fix",
-    "prerelease": "cross-env ASPNETCORE_ENVIRONMENT=Production && cd client && ./node_modules/.bin/webpack --config ./webpack.config.js && cd ../server/ && dotnet publish --configuration Release",
-    "build": "dotnet build ./server/ && cd ./client/ && yarn build",
-    "postinstall": "dotnet restore ./server/",
-    "migrate": "cd ./server/ && node ./Scripts/create-migration.js && dotnet ef database update",
-    "provision": "ansible-playbook -l production -i ./ansible/config.yml ./ansible/provision.yml",
-    "deploy": "npm run prerelease && ansible-playbook -l production -i ./ansible/config.yml ./ansible/deploy.yml",
-    "ssh": "ssh `grep 'deploy_user=' ./ansible/hosts | tail -n1 | awk -F'=' '{ print $2}'`@`awk 'f{print;f=0} /[production]/{f=1}' ./ansible/hosts | head -n 1`"
-  },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run lint"
+      "pre-commit": "make lint"
     }
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Rubix982/Social-Media-Project.git"
+    "url": "git+https://github.com/Rubix982/ASP.NET-ReactJS-Template"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Rubix982/Social-Media-Project/issues"
+    "url": "https://github.com/Rubix982/ASP.NET-ReactJS-Template/issues"
   },
-  "homepage": "https://github.com/Rubix982/Social-Media-Project#readme",
+  "homepage": "https://github.com/Rubix982/ASP.NET-ReactJS-Template/blob/main/README.md",
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.14.0",
     "@typescript-eslint/parser": "^4.14.0",

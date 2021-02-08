@@ -55,3 +55,48 @@ mongo-con:
 ## Cache container
 cache-con:
 	sudo docker exec -it cache
+
+# TESTING
+
+## Testing Server And Client
+test:
+	cd ./Tests/server/ && dotnet test && \\
+	cd ../../ && cd ./client/ && ./node_modules/.bin/jest ./client/src/tests/About.test.tsx
+
+lint:
+	./node_modules/.bin/eslint ./client/
+
+lint-fix:
+	./node_modules/.bin/prettier --write ./client/src/**/*.ts{,x} && eslint ./client/ --fix
+
+# DOTNET
+
+## Make pre release for the project
+prerelease:
+	cross-env ASPNETCORE_ENVIRONMENT=Production && \\
+	cd client && ./node_modules/.bin/webpack --config ./webpack.config.js \\
+	&& cd ../server/ && dotnet publish --configuration Release
+
+## After making a pre release
+postinstall:
+	dotnet restore ./server/
+
+## Create migration
+migrate:
+	cd ./server/ && node ./Scripts/create-migration.js && dotnet ef database update
+
+# ANSIBLE
+
+## Provision Containers
+provision:
+	ansible-playbook -l production -i ./ansible/config.yml ./ansible/provision.yml
+
+## Deploy to containers
+deploy:
+	npm run prerelease && ansible-playbook -l production -i ./ansible/config.yml ./ansible/deploy.yml
+
+# COTAINERS
+
+## SSH to containers
+ssh:
+	ssh `grep 'deploy_user=' ./ansible/hosts | tail -n1 | awk -F'=' '{ print $2}'`@`awk 'f{print;f=0} /[production]/{f=1}' ./ansible/hosts | head -n 1
