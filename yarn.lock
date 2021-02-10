@@ -1718,9 +1718,6 @@ postcss@^8.2.4:
     colorette "^1.2.1"
     nanoid "^3.1.20"
     source-map "^0.6.1"
-
-=======
->>>>>>> e5a5bcde921aa801e835b198cb5eaab43f3d8290
 prelude-ls@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.2.1.tgz#debc6489d7a6e6b0e7611888cec880337d316396"
