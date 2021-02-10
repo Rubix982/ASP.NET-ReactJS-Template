@@ -7,11 +7,11 @@ import FetchData from './components/FetchData';
 import './styles/App.scss';
 
 const App = () => (
-  <Layout>
-      <Route exact path='/' component={Home} />
-      <Route path='/counter' component={Counter} />
-      <Route path='/fetch-data/:startDateIndex?' component={FetchData} />
-  </Layout>
+    <Layout>
+        <Route exact path="/" component={Home} />
+        <Route path="/counter" component={Counter} />
+        <Route path="/fetch-data/:startDateIndex?" component={FetchData} />
+    </Layout>
 );
 
 export default App;

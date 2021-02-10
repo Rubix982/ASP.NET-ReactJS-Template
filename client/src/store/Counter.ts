@@ -12,8 +12,12 @@ export interface CounterState {
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 // Use @typeName and isActionType for type detection that works even after serialization/deserialization.
 
-export interface IncrementCountAction { type: 'INCREMENT_COUNT' }
-export interface DecrementCountAction { type: 'DECREMENT_COUNT' }
+export interface IncrementCountAction {
+    type: 'INCREMENT_COUNT';
+}
+export interface DecrementCountAction {
+    type: 'DECREMENT_COUNT';
+}
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
@@ -25,13 +29,16 @@ export type KnownAction = IncrementCountAction | DecrementCountAction;
 
 export const actionCreators = {
     increment: () => ({ type: 'INCREMENT_COUNT' } as IncrementCountAction),
-    decrement: () => ({ type: 'DECREMENT_COUNT' } as DecrementCountAction)
+    decrement: () => ({ type: 'DECREMENT_COUNT' } as DecrementCountAction),
 };
 
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
-export const reducer: Reducer<CounterState> = (state: CounterState | undefined, incomingAction: Action): CounterState => {
+export const reducer: Reducer<CounterState> = (
+    state: CounterState | undefined,
+    incomingAction: Action
+): CounterState => {
     if (state === undefined) {
         return { count: 0 };
     }

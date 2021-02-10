@@ -21,7 +21,6 @@
     "target": "es5",
     "jsx": "react-jsx",
     "allowJs": true,
-    "noEmit": true
   },
   "include": [
     "./src/**/*"
