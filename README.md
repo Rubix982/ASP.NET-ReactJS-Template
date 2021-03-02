@@ -29,7 +29,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 <a href="https://cla-assistant.io/Rubix982/ASP.NET-ReactJS-Template"><img src="https://cla-assistant.io/readme/badge/Rubix982/ASP.NET-ReactJS-Template" alt="CLA assistant" /></a>
 
 <!-- PROJECT LOGO -->
@@ -169,6 +168,4 @@ Email: saifulislam84210@gmail.com
 [issues-url]: https://github.com/Rubix982/ASP.NET-ReactJS-Template/issues
 [license-shield]: https://img.shields.io/github/license/Rubix982/ASP.NET-ReactJS-Template.svg?style=for-the-badge
 [license-url]: https://github.com/Rubix982/ASP.NET-ReactJS-Template/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/saif-ul-islam-93786b187/
 [product-screenshot]: images/screenshot.png
