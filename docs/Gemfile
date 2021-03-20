@@ -2,13 +2,13 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem "jekyll", "~> 3.8.4"
-gem "github-pages", group: :jekyll_plugins
+gem "jekyll", "~> 3.9.0"
+gem "github-pages", ">= 207", group: :jekyll_plugins
 
 group :jekyll_plugins do
-    gem "jekyll-menus", "~> 0.6.0"
-    gem "jekyll-paginate-v2", "~> 1.9"
+    gem "jekyll-menus", "~> 0.6.1"
+    gem "jekyll-paginate-v2", "~> 1.9", ">= 1.9.4"
     gem "jekyll-paginate", "~> 1.1"
-    gem 'jekyll-feed'
-    gem 'jekyll-sitemap'    
+    gem 'jekyll-feed', '>= 0.13.0'
+    gem 'jekyll-sitemap'    , '>= 1.4.0'
 end
