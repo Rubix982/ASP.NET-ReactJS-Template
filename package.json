@@ -19,8 +19,8 @@
   },
   "homepage": "https://github.com/Rubix982/ASP.NET-ReactJS-Template/blob/main/README.md",
   "devDependencies": {
-    "@typescript-eslint/parser": "^4.19.0",
-    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "@typescript-eslint/eslint-plugin": "^4.19.0",
     "airbnb": "^0.0.2",
     "concurrently": "^6.0.0",
     "cross-env": "^7.0.3",
