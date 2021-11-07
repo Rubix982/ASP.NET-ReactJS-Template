@@ -39,6 +39,6 @@
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-airbnb-base": "^14.2.1",
     "prettier": "^2.4.0",
-    "yarn": "^1.22.11"
+    "yarn": "^1.22.17"
   }
 }
