@@ -22,7 +22,7 @@
     "@typescript-eslint/parser": "^4.33.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "airbnb": "^0.0.2",
-    "concurrently": "^6.3.0",
+    "concurrently": "^6.4.0",
     "cross-env": "^7.0.3",
     "css-loader": "^6.5.1",
     "eslint": "^7.32.0",
