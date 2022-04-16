@@ -1,7 +1,7 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (6.0.4.7)
+    activesupport (6.0.4.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -15,7 +15,7 @@ GEM
     coffee-script-source (1.11.1)
     colorator (1.1.0)
     commonmarker (0.23.4)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.1.9)
     dnsruby (1.61.9)
       simpleidn (~> 0.1)
     em-websocket (0.5.3)
@@ -236,17 +236,17 @@ GEM
       jekyll-seo-tag (~> 2.1)
     minitest (5.15.0)
     multipart-post (2.1.1)
-    nokogiri (1.13.4)
+    nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.4-x86_64-linux)
+    nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
     octokit (4.22.0)
       faraday (>= 0.9)
       sawyer (~> 0.8.0, >= 0.5.3)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (4.0.7)
+    public_suffix (4.0.6)
     racc (1.6.0)
     rb-fsevent (0.11.1)
     rb-inotify (0.10.1)
@@ -284,7 +284,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  github-pages (>= 219)
+  github-pages (>= 224)
   jekyll (~> 3.9.0)
   jekyll-feed (>= 0.15.1)
   jekyll-menus (~> 0.6.1)
