@@ -22,23 +22,23 @@
     "@typescript-eslint/parser": "^4.33.0",
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "airbnb": "^0.0.2",
-    "concurrently": "^6.3.0",
+    "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
-    "css-loader": "^6.5.1",
+    "css-loader": "^6.7.1",
     "eslint": "^7.32.0",
     "eslint-config-airbnb-typescript": "^14.0.2",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.25.3",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
-    "webpack-cli": "^4.9.1"
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {
-    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-airbnb": "^19.0.0",
     "eslint-config-airbnb-base": "^15.0.0",
-    "prettier": "^2.4.0",
-    "yarn": "^1.22.17"
+    "prettier": "^2.6.2",
+    "yarn": "^1.22.18"
   }
 }
