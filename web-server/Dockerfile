@@ -1,3 +1,3 @@
-FROM nginx:1.21
+FROM nginx:latest
 
 RUN apt-get update && apt-get -y install nginx-extras
