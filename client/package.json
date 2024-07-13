@@ -23,7 +23,7 @@
   "author": "Saif Ul Islam",
   "license": "MIT",
   "dependencies": {
-    "bootstrap": "^4.6.0",
+    "bootstrap": "^5.0.0",
     "connected-react-router": "^6.8.0",
     "dotenv": "^8.2.0",
     "history": "4.10.1",
